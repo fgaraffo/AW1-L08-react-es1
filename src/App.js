@@ -1,6 +1,7 @@
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Col, Container, Row } from 'react-bootstrap';
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function WelcomeButton(props) {
   const [english, setEnglish] = useState(true);
   const toggleLanguage = () => { setEnglish(e => !e) };
   /*return (<button onClick={ () => setEnglish( eng => !eng )}></button>)*/;
-  return (<button onClick={toggleLanguage}>
+  return (<Button onClick={toggleLanguage}>
     {english ? 'Hello' : 'Ciao'}
-  </button>);
+  </Button>);
 }
 
 //funziona anche con props e props.initialCount, così prendi solo la proprietà che interessa,
@@ -29,10 +30,12 @@ function Counter({ initialCount }) {
   const [count, setCount] = useState(initialCount);
   return (
     <>
-      Count: {count}<br />
-      <button onClick={() => setCount(initialCount)}>Reset</button>
+      Count: {count}
+      <div>
+      <Button onClick={() => setCount(initialCount)}>Reset</Button>
       <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
       <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
+      </div>
     </>
   );
 }
